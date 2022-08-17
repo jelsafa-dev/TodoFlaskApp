@@ -1,0 +1,7 @@
+Verify Pyhon Version
+python --version
+
+Install and setup enviroment
+pip install virtualenv
+virtualenv env
+

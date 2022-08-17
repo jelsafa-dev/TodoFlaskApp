@@ -1,0 +1,12 @@
+Verify Pyhon Version
+python --version
+
+Install and setup enviroment
+pip install virtualenv
+virtualenv env
+
+Activate the enviroment
+.\\env\Scripts\activate.bat
+
+Install Flask
+pip install flask flask-sqlalchemy
