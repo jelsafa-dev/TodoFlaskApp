@@ -12,5 +12,4 @@ Install Flask
 pip install flask flask-sqlalchemy
 
 Freeze the requirements
-pip install gunicorn
 pip freeze > requirements.txt
