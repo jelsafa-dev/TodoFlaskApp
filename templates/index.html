@@ -1,4 +1,51 @@
-{% extends 'base.html' %} {% block head %} <title>Index</title> {% endblock %}
-{% block body %}
-<h1>Hello World</h1>
+{% extends 'base.html' %} {% block head %} <title>Task Master</title> {%
+endblock %} {% block body %}
+<div class="container pt-5">
+  <h1>Task Master</h1>
+
+  {% if tasks|length > 0 %}
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Added</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks %}
+      <tr>
+        <td>{{ task.content }}</td>
+        <td>{{ task.date_created.date() }}</td>
+        <td>
+          <a href="/delete/{{task.id}}">Delete</a>
+          <a href="/update/{{task.id}}">Update</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  {% else %}
+
+  <div class="alert alert-danger" role="alert">
+    There are no tasks. Create one below.
+  </div>
+
+  {% endif %}
+
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">New Task</h5>
+      <form action="/" method="POST">
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <input type="text" name="content" id="content" class="form-control" />
+        </div>
+        <input type="submit" class="btn btn-primary" value="Add Task" />
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
